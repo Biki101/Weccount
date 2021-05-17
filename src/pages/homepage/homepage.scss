@@ -1,15 +1,18 @@
 .homepage {
     height: 100%;
+    background-color: rgb(238, 237, 235);
+    border: 4px solid black;
+    border-radius: 15px;
 }
 
 .menu-items {
     width: 100%;
     height: 600px;
-    border: 1px solid black;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin-top: 30px;
+    padding-top: 50px;
 }
 
 .content-record {
@@ -37,4 +40,5 @@
     justify-content: flex-end;
     align-items: center;
     border-radius: 10px;
+    font-size: 14px;
 }

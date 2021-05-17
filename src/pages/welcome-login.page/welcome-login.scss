@@ -1,0 +1,19 @@
+.welcome-page {
+   background-color: whitesmoke;
+   border-radius: 5px;
+   border: 6px solid black;
+   padding: 15px;
+}
+.buttons {
+ padding: 0 20px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+}
+
+h3 {
+    margin-top: 10px;
+  text-align: center;  
+}
+
+

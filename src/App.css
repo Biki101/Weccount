@@ -1,6 +1,7 @@
 body {
-    font-family: 'Open Sans Condensed';
+    font-family: 'Farro', sans-serif;
     padding: 20px 60px;
+    background: url('./assets/saloon-background.jpg');
 }
 a {
     color: black;

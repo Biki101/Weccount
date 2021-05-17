@@ -1,0 +1,59 @@
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+
+const config = {
+  apiKey: "AIzaSyAAVld7M1njYKFDe6oEb_50e5XjF2LuuKM",
+  authDomain: "weccount-bc700.firebaseapp.com",
+  projectId: "weccount-bc700",
+  storageBucket: "weccount-bc700.appspot.com",
+  messagingSenderId: "525332505179",
+  appId: "1:525332505179:web:a9a3400f67e9aeb7f3957e",
+  measurementId: "G-XQSHJ0DJTL",
+};
+
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+  if (!userAuth) return;
+
+  const userRef = firestore.doc(`user/${userAuth.uid}`);
+  const snapShot = await userRef.get();
+
+  if (!snapShot.exists) {
+    const displayName = userAuth.displayName;
+    const email = userAuth.email;
+    const createdAt = new Date();
+
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData,
+      });
+    } catch (error) {
+      console.log("error creating user", error.message);
+    }
+  }
+  return userRef;
+};
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      unsubscribe();
+      resolve(userAuth);
+    }, reject);
+  });
+};
+
+firebase.initializeApp(config);
+
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: "select_account" });
+
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
+
+export default firebase;
