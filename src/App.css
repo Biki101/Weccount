@@ -2,6 +2,8 @@ body {
     font-family: 'Farro', sans-serif;
     padding: 20px 60px;
     background: url('./assets/saloon-background.jpg');
+    height: 1250px;
+    width: 600px;
 }
 a {
     color: black;

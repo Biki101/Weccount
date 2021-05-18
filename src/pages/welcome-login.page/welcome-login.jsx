@@ -51,7 +51,7 @@ const WelcomePage = ({ googleSignIn }) => {
           </button>
           <button
             onClick={googleSignIn}
-            className="btn btn-dark btn-lg btn-block"
+            className="btn btn-dark btn-lg btn-block btn-gle"
           >
             GOOGLE SIGN IN
           </button>
