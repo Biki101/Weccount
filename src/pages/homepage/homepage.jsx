@@ -1,23 +1,28 @@
 import React from "react";
-import NavBar from "../../components/nav-component/nav-component";
+import { withRouter } from "react-router-dom";
 import "./homepage.scss";
 
-const Homepage = () => {
+const Homepage = (props) => {
   return (
     <div className="homepage">
       <div className="menu">
         <div className="menu-items">
-          <div className="content-record">
+          <div
+            className="content-record"
+            onClick={() => props.history.push(`${props.match.url}recordbook`)}
+          >
             <h1 className="r-book">Record Book</h1>
           </div>
-          <div className="content-withdraw">
+          <div
+            className="content-withdraw"
+            onClick={() => props.history.push(`${props.match.url}withdrawbook`)}
+          >
             <h1 className="w-book">Withdraw Book</h1>
           </div>
         </div>
-        <NavBar />
       </div>
     </div>
   );
 };
 
-export default Homepage;
+export default withRouter(Homepage);

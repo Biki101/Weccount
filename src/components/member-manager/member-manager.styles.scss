@@ -1,0 +1,15 @@
+img {
+    width: 100%;
+}
+
+.add-member {
+    border: 3px solid black;
+    border-radius: 7px;
+}
+
+.member_mngr {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

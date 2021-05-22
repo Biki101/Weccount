@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import "firebase/database";
 
 const config = {
   apiKey: "AIzaSyAAVld7M1njYKFDe6oEb_50e5XjF2LuuKM",
@@ -11,6 +12,7 @@ const config = {
   appId: "1:525332505179:web:a9a3400f67e9aeb7f3957e",
   measurementId: "G-XQSHJ0DJTL",
 };
+firebase.initializeApp(config);
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
@@ -46,7 +48,35 @@ export const getCurrentUser = () => {
   });
 };
 
-firebase.initializeApp(config);
+//members data to firebase
+const database = firebase.database(); //gets the database
+const membersRef = database.ref("members");
+export const createMember = (memberCredentials) => {
+  //pushing the object to the reference members
+  membersRef.push(memberCredentials);
+};
+//delete data in firebase
+export const removeMember = (memberName) => {
+  membersRef.on("value", function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+      const childData = childSnapshot.val();
+      if (childData.name === memberName) {
+        childSnapshot.ref.remove();
+      }
+    });
+  });
+};
+//gets member from firebase
+export const getMembers = () => {
+  const membersList = [];
+  membersRef.on("value", function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+      const childData = childSnapshot.val();
+      membersList.push(childData);
+    });
+  });
+  return membersList;
+};
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

@@ -8,19 +8,25 @@ import WelcomePage from "./pages/welcome-login.page/welcome-login";
 import { checkUserSession } from "./redux/user/user-action";
 import { connect } from "react-redux";
 import React, { useEffect } from "react";
+import RecordBook from "./pages/record-book/record-book";
+import WithdrawBook from "./components/withdraw-book/withdraw-book";
+import NavBar from "./components/nav-component/nav-component";
 
 function App({ currentUser, checkUserSession }) {
   useEffect(() => {
     checkUserSession();
   }, [checkUserSession]);
   return (
-    <div>
+    <div className="app">
+      {currentUser ? <NavBar /> : null}
       <Switch>
         <Route
           exact
           path="/"
           component={() => (currentUser ? <HomePage /> : <WelcomePage />)}
         />
+        <Route path="/recordbook" component={RecordBook} />
+        <Route path="/withdrawbook" component={WithdrawBook} />
       </Switch>
     </div>
   );
