@@ -4,13 +4,18 @@ import "./display-member.styles.scss";
 import Member from "../member/member";
 import { createStructuredSelector } from "reselect";
 import { selectMembersList } from "../../redux/members/members-selectors";
+
 const DisplayMember = ({ membersList }) => {
-  const keys = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  console.log(membersList);
+  // const [members, setMember] = useState();
+
+  // useEffect(() => {
+  //   setMember(membersList);
+  // });
+
   return (
     <div className="display-member">
       {membersList.map((members, index) => (
-        <Member key={keys[index]} name={members.name} />
+        <Member key={index} name={members.name} />
       ))}
     </div>
   );

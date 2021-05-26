@@ -4,7 +4,7 @@ import addmem from "../../assets/addmember.png";
 import DisplayMember from "../display-member/display-member";
 import { useHistory, withRouter } from "react-router-dom";
 
-const MemberManager = ({ match }) => {
+const MemberManager = () => {
   const history = useHistory();
   const takeToAddMember = () => {
     history.push("/recordbook/addmember");

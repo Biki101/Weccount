@@ -66,14 +66,16 @@ export const removeMember = (memberName) => {
     });
   });
 };
-//gets member from firebase
+//get array of members from firebase
 export const getMembers = () => {
   const membersList = [];
   membersRef.on("value", function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
-      const childData = childSnapshot.val();
-      membersList.push(childData);
+      const item = childSnapshot.val();
+      item.key = childSnapshot.key;
+      membersList.push(item);
     });
+    console.log(membersList);
   });
   return membersList;
 };
