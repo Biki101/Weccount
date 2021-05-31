@@ -48,13 +48,9 @@ export const getCurrentUser = () => {
   });
 };
 
-//members data to firebase
 const database = firebase.database(); //gets the database
 const membersRef = database.ref("members");
-export const createMember = (memberCredentials) => {
-  //pushing the object to the reference members
-  membersRef.push(memberCredentials);
-};
+
 //delete data in firebase
 export const removeMember = (memberName) => {
   membersRef.on("value", function (snapshot) {
@@ -78,6 +74,50 @@ export const getMembers = () => {
     console.log(membersList);
   });
   return membersList;
+};
+
+//members data to firebase
+export const createMember = async (memberCredentials) => {
+  //pushing the object to the reference members
+  await membersRef.push(memberCredentials);
+};
+
+//set members' daily gains
+export const setMembersDailyGains = async (name, gain, expense, date) => {
+  const dbName = name.replace(/\s/g, "");
+  const memberGainsRef = database.ref(`dailyGains/${dbName}/${date}`);
+  const gainObj = {
+    date: date,
+    gain: gain,
+    expense: expense,
+  };
+  await memberGainsRef.push(gainObj);
+};
+
+export const db = firebase.firestore();
+//get members' daily gains
+export const getMembersDailyGains = (name) => {
+  const dbName = name.replace(/\s/g, "");
+  const memberGainsRef = database.ref(`dailyGains/${dbName}`);
+  const gainsList = [];
+  try {
+    memberGainsRef.on("value", function (snapshot) {
+      snapshot.forEach(function (childSnapshot) {
+        childSnapshot.forEach(function (cchildSnapshot) {
+          cchildSnapshot.forEach(function (ccchildSnapshot) {
+            const item = ccchildSnapshot.val();
+            item.key = ccchildSnapshot.key;
+            gainsList.push(item);
+          });
+        });
+      });
+      console.log(gainsList);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  console.log(gainsList);
+  return gainsList;
 };
 
 export const auth = firebase.auth();

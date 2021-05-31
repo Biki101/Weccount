@@ -8,13 +8,13 @@ import { Link } from "react-router-dom";
 const BookNav = () => {
   const location = useLocation();
   const { memberName } = location.state;
-  const [name, setMember] = useState(memberName);
+  const [name] = useState(memberName);
   return (
     <div className="book-nav">
       <div className="write-record">
         <Link
           to={{
-            pathname: "/recordbook/booknav/write",
+            pathname: "/recordbook/write",
             state: {
               memberName: name,
             },
@@ -26,7 +26,7 @@ const BookNav = () => {
       <div className="view-record">
         <Link
           to={{
-            pathname: "/recordbook/booknav/write",
+            pathname: "/recordbook/view",
             state: {
               memberName: name,
             },
