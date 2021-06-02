@@ -120,6 +120,65 @@ export const getMembersDailyGains = (name) => {
   return gainsList;
 };
 
+export const getTotalGainsAndExpenses = (name) => {
+  const dbName = name.replace(/\s/g, "");
+  const memberGainsRef = database.ref(`dailyGains/${dbName}`);
+  const totalGainsAndExpenses = [];
+
+  try {
+    memberGainsRef.on("value", function (snapshot) {
+      snapshot.forEach(function (childSnapshot) {
+        childSnapshot.forEach(function (cchildSnapshot) {
+          cchildSnapshot.forEach(function (ccchildSnapshot) {
+            const item = ccchildSnapshot.val();
+            item.key = ccchildSnapshot.key;
+            totalGainsAndExpenses.push(item);
+          });
+        });
+      });
+      console.log(totalGainsAndExpenses);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  console.log(totalGainsAndExpenses);
+  return totalGainsAndExpenses;
+};
+
+export const withdrawFromAccount = async (date, name, amount) => {
+  const dbName = name.replace(/\s/g, "");
+  const memberWithdrawRef = database.ref(`withdraw-record/${dbName}/${date}`);
+  const withdrawObj = {
+    date: date,
+    amount: amount,
+  };
+  await memberWithdrawRef.push(withdrawObj);
+  console.log("added");
+};
+
+export const getWithdrawnRecord = (name) => {
+  const dbName = name.replace(/\s/g, "");
+  const memberWithdrawnRecordRef = database.ref(`withdraw-record/${dbName}`);
+  const records = [];
+  try {
+    memberWithdrawnRecordRef.on("value", function (snapshot) {
+      snapshot.forEach(function (childSnapshot) {
+        childSnapshot.forEach(function (cchildSnapshot) {
+          cchildSnapshot.forEach(function (ccchildSnapshot) {
+            const item = ccchildSnapshot.val();
+            item.key = ccchildSnapshot.key;
+            records.push(item);
+          });
+        });
+      });
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  console.log(records);
+  return records;
+};
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 

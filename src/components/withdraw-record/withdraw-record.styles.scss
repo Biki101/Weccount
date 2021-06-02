@@ -1,0 +1,28 @@
+.withdrawn-record{
+    padding: 10px;
+}
+.form-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    .header-block{
+        width: 60px;
+    }
+}
+
+.record{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+
+.balance{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+span{
+    width: 100px;
+}
