@@ -2,8 +2,6 @@ import React from "react";
 import { Navbar, Button } from "react-bootstrap";
 import HomeIcon from "@material-ui/icons/Home";
 import "./nav-component.styles.scss";
-import { createStructuredSelector } from "reselect";
-import { selectCurrentUser } from "../../redux/user/user-selector";
 import { signOutStart } from "../../redux/user/user-action";
 import { connect } from "react-redux";
 import { useHistory, withRouter } from "react-router";
@@ -27,11 +25,6 @@ const NavBar = ({ signOut }) => {
             style={{ marginTop: 10 }}
           />
         </Navbar.Brand>
-        {/* <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
-        </Nav> */}
         <Button variant="outline-info" onClick={handleSignOut}>
           SIGN OUT
         </Button>
@@ -40,12 +33,8 @@ const NavBar = ({ signOut }) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
-});
-
 const mapDispatchToProps = (dispatch) => ({
   signOut: () => dispatch(signOutStart()),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar));
+export default withRouter(connect(null, mapDispatchToProps)(NavBar));

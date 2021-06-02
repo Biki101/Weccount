@@ -5,6 +5,7 @@ import { createMember } from "../../firebase/firebase.utils";
 import "firebase/firestore";
 import "firebase/database";
 import GroupAddIcon from "@material-ui/icons/GroupAdd";
+import { Link } from "react-router-dom";
 
 const AddMember = () => {
   const [memberCredentials, setMemberCredendials] = useState({
@@ -68,7 +69,7 @@ const AddMember = () => {
         </div>
         <div className="buttons">
           <button type="submit" className="btn btn-dark btn-lg btn-block">
-            Add Member
+            <Link to="/">Add Member</Link>
           </button>
         </div>
       </form>
