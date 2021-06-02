@@ -1,18 +1,21 @@
 .book {
-    justify-content: center;
-    align-items: center;
-    width: 80%;
+    margin: auto;
+    width: 70%;
+}
+.header {
+    font-size: 25px;
 }
 
 .select-members {
     justify-content: center;
     align-items: center;
     border: 3px solid rgb(2, 2, 2);
+    border-radius: 2px;
     font-family: 'Mate SC', serif;
     font-size: 20px;
     font-weight: bolder;
     text-align: center;
-    border-radius: 5px;
+    margin: 10px;
 }
 
 .member {

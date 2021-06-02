@@ -1,15 +1,14 @@
 import React from "react";
-import { Route } from "react-router";
+import { Route, Switch } from "react-router";
 import RecordBookOverView from "../../components/record-book-overview/record-book-overview";
 import Action from "../../components/action/action";
-import "./record-book.styles.scss";
 
 const RecordBookPage = ({ match }) => {
   return (
-    <div className="record-book">
+    <Switch>
       <Route exact path={`${match.path}`} component={RecordBookOverView} />
       <Route path={`${match.path}/:bookAction`} component={Action} />
-    </div>
+    </Switch>
   );
 };
 export default RecordBookPage;

@@ -143,7 +143,6 @@ const WriteBook = () => {
                     />
                   </div>
                 </div>
-
                 <button type="submit">SUBMIT</button>
               </form>
             </div>

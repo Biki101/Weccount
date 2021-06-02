@@ -11,6 +11,7 @@ const Book = ({ membersDetail }) => {
 
   return (
     <div className="book">
+      <h3 className="header">Please Select Members</h3>
       <div className="select-members">
         {membersDetail.map(({ name, phoneNumber }) => (
           <div key={phoneNumber} className="member">

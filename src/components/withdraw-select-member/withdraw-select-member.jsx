@@ -7,6 +7,7 @@ import { selectMembersList } from "../../redux/members/members-selectors";
 const WithdrawSelectMember = ({ membersDetail }) => {
   return (
     <div className="withdraw">
+      <h2 className="header">Please Select Members</h2>
       <div className="select-members">
         {membersDetail.map(({ name, phoneNumber }) => (
           <div key={phoneNumber} className="member">

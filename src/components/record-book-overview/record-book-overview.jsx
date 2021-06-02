@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const RecordBookOverView = () => {
   return (
-    <div className="record-book">
+    <div className="record-book-overview">
       <div className="member-manager">
         <Link to="/recordbook/membermanager">
           <img alt="member manager" src={manager} />

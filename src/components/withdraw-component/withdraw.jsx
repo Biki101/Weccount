@@ -8,6 +8,7 @@ import "./withdraw.styles.scss";
 const Withdraw = ({ membersDetail }) => {
   return (
     <div className="withdraw">
+      <h1 className="header">Please Select Members</h1>
       <div className="select-members">
         {membersDetail.map(({ name, phoneNumber }) => (
           <div key={phoneNumber} className="member">

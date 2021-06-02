@@ -12,12 +12,10 @@ const MemberManager = () => {
 
   return (
     <div className="member_mngr">
+      <h3 className="members">List of Members</h3>
+      <DisplayMember />
       <div className="add-member" onClick={takeToAddMember}>
         <img alt="add member" src={addmem}></img>
-      </div>
-      <div className="members">
-        <h3>List of Members</h3>
-        <DisplayMember />
       </div>
     </div>
   );

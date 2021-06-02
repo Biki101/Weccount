@@ -1,6 +1,16 @@
 .view {
     padding: 10px;
-    width: 100%;
+    border: 2px solid black;
+  
+    margin: 10px;
+    border-radius: 3px;
+
+    .header {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: rgb(16, 95, 98);
+      margin-top: 20px; 
+      margin-bottom: 10px; 
+    }
 }
 h5 {
     font-size: 25px;
@@ -11,9 +21,11 @@ h5 {
     padding: 10px 0;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid rgb(44, 27, 235);
+    border-bottom: 2px solid rgb(115, 11, 164);
 
     .header-block {
+      font-style: oblique;
+      font-weight: bold;
       text-transform: capitalize;
       width: 23%;
 

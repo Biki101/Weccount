@@ -1,31 +1,96 @@
 .withdraw-form {
-    padding: 10px;
-    width: 100%;
+  padding: 10px;
+  width: 90%;
+  margin: auto;
 }
-h5 {
-    font-size: 50px;
+.header {
+  font-size: 35px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: rgb(16, 95, 98);
+  margin-top: 20px; 
+  margin-bottom: 10px; 
+}
+.rcrd {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+  
+  .balance {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bolder;
+
+   .balance-block {
+     text-align: center;
+     width: 20%;
+     border-bottom: 2px solid rgb(115, 11, 164);
+     margin-top: 10px;
+     font-size: 15px;
+    }
+  }
 }
 
 .form-header {
-    width: 100%;
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid rgb(44, 27, 235);
-
-    .header-block {
+  
+  text-align: center;
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid rgb(7, 86, 108);
+  font-size: 12px;
+  .header-block {
+      font-style: oblique;
+      font-weight: bold;
       text-transform: capitalize;
-      width: 23%;
-
+      width: 25%;
+      
       &:last-child {
         width: 8%;
       }
     }
-}
-
-.form {
+  }
+  .withdraw-form-header {
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(16, 95, 98);
     margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center; 
+  }
+  .form {
+    width: 100%;
+    margin-top: 25px;
+    margin:auto;
     display: flex;
     flex-direction: row;
-    width:90%;
-}
+    padding: 20px 0px;
+    justify-content: space-around;
+    align-items: center;
+    height: 30px;
+
+    .withdraw-amt{
+      color:rgb(3, 93, 49);
+      text-align: end;
+      width: 32%;
+      font-weight: bolder;
+      height: 27px;
+      font-size: 11px;
+    }
+    .dark {
+     border-radius: 2px;
+     background-color: rgb(29, 10, 47); 
+     width: 25%;
+    }
+    .link{
+      color:rgb(187, 236, 213)
+    }
+    input{
+      height: 25px;
+      border: 1px solid rgb(26, 44, 31);
+      border-radius: 2px;
+    }
+  }

@@ -11,7 +11,7 @@ const ViewBook = () => {
   console.log(gainList);
   return (
     <div className="view">
-      <h5>{memberName}</h5>
+      <h5 className="header">{memberName}</h5>
       <div className="view-header">
         <div className="header-block">
           <span>Date</span>

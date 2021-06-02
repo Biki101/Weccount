@@ -3,3 +3,8 @@
 Nav.Link {
     font-size: larger;
 }
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
